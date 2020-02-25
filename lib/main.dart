@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:searchable_dropdown/searchable_dropdown.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.light(),/*ThemeData(
+      theme: ThemeData.light(), /* ThemeData(
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -102,6 +103,8 @@ class OnBoardingPage extends StatelessWidget {
       //imagePadding: EdgeInsets.zero,
     );
 
+
+
     return IntroductionScreen(
       pages: [
         PageViewModel(
@@ -111,8 +114,8 @@ class OnBoardingPage extends StatelessWidget {
             children: <Widget>[
               Text("Ez egy nonprofit kliens a NEPTUN rendszerhez\n"
                   "\n"
-                  "\nMivel nem az SDA Informatika Zrt. készítette ezért ne az ő ügyfélszolgálatukat terheld, hanem írj egy e-mailt az alkalmazás fejlesztőnek:\n"
-                  "sakiicode10@gmail.com",style: bodyStyle)
+                  "\nMivel nem az SDA Informatika Zrt. készítette ezért ne az ő ügyfélszolgálatukat terheld, hanem írj egy e-mailt az alkalmazás fejlesztőjének:\n"
+                  "s4k11@tuta.io",style: bodyStyle)
             ],
           ),
           //image: _buildImage('img1'),
@@ -121,33 +124,64 @@ class OnBoardingPage extends StatelessWidget {
         ),
         PageViewModel(
           title: "Egyetem választása",
-          bodyWidget: new Column(
-            children:<Widget>[
-              ListTile(
-                title: new Text("asd"),
-                subtitle: new Text("url"),
-                /*onTap: () {
-
-                  setState(() {
-
-                    Navigator.pop(context);
-                  });
-                },*/
-              ),
-              new Container(
-                child: new Text("omcode"),
-                alignment: new Alignment(1.0, 0.0),
-              )
-            ]
-          ),
+          bodyWidget:UniversitiesList(),
 
           //image: _buildImage('img2'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Kids and teens",
-          body:
-          "Kids and teens can track their stocks 24/7 and place trades that you approve.",
+          title: "Bejelentkezés",
+          bodyWidget:Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  new Column(
+                    children: <Widget>[
+  )                   new TextFormField(
+                        style:
+                        TextStyle(color: Colors.white),
+                        controller: new TextEditingController(),
+                        decoration: InputDecoration(
+                          prefixIcon:
+                          new Icon(Icons.person),
+                          hintText: "NEPTUN kód",
+                          hintStyle: TextStyle(
+                              color: Colors.white30),
+                          //errorText: "asd",
+                          fillColor: Color.fromARGB(
+                              40, 20, 20, 30),
+                          filled: true,
+
+                          contentPadding:
+                          EdgeInsets.fromLTRB(
+                              5.0, 15.0, 5.0, 15.0),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                            BorderRadius.circular(
+                                5.0),
+                            gapPadding: 1.0,
+                            borderSide: BorderSide(
+                              color: Colors.green,
+                              width: 2.0,
+                            )
+                          )
+                        )
+                      ),
+
+
+                    ]
+
+                  ),
+                ]
+              ),
+
+            ]
+          )
+        ]
+      ),
+
           //image: _buildImage('img3'),
           decoration: pageDecoration,
         ),
@@ -198,6 +232,52 @@ class OnBoardingPage extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
         ),
       ),
+    );
+  }
+}
+
+class UniversitiesList extends StatefulWidget{
+
+  @override
+  _UniversitiesListState createState() => _UniversitiesListState();
+
+}
+
+class _UniversitiesListState extends State<UniversitiesList> {
+
+  List<DropdownMenuItem> items = [];
+  String selectedValue;
+
+
+  @override
+  Widget build(BuildContext context) {
+    items.clear();
+    for(int i=0; i < 20; i++){
+      items.add(new DropdownMenuItem(
+        child: new Text(
+          'test ' + i.toString(),
+        ),
+        value: 'test ' + i.toString(),
+      ));
+    }
+
+    return new SearchableDropdown(
+      items: items,
+      value: selectedValue,
+      hint: new Text(
+          'Select One'
+      ),
+      searchHint: new Text(
+        'Select One',
+        style: new TextStyle(
+            fontSize: 20
+        ),
+      ),
+      onChanged: (value) {
+        setState(() {
+          selectedValue = value;
+        });
+      },
     );
   }
 }

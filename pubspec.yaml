@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   introduction_screen: ^1.0.7
+  searchable_dropdown: ^1.1.0
 
 
 dev_dependencies:
