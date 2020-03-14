@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:searchable_dropdown/searchable_dropdown.dart';
+import 'loginForm.dart';
+import 'universitiesList.dart';
+import 'dart:developer';
+
 
 void main() => runApp(MyApp());
 
@@ -32,8 +35,8 @@ class MyApp extends StatelessWidget {
 
 class OnBoardingPage extends StatelessWidget {
 
-
   const OnBoardingPage({Key key}) : super(key: key);
+
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
@@ -102,7 +105,7 @@ class OnBoardingPage extends StatelessWidget {
       titlePadding: EdgeInsets.fromLTRB(20, 200, 20, 20)
       //imagePadding: EdgeInsets.zero,
     );
-
+    MyCustomForm loginForm =  MyCustomForm();
 
 
     return IntroductionScreen(
@@ -124,106 +127,38 @@ class OnBoardingPage extends StatelessWidget {
         ),
         PageViewModel(
           title: "Egyetem választása",
-          bodyWidget:UniversitiesList(),
-
-          //image: _buildImage('img2'),
+          bodyWidget: UniversitiesList(),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Bejelentkezés",
-          bodyWidget:Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  new Column(
-                    children: <Widget>[
-  )                   new TextFormField(
-                        style:
-                        TextStyle(color: Colors.white),
-                        controller: new TextEditingController(),
-                        decoration: InputDecoration(
-                          prefixIcon:
-                          new Icon(Icons.person),
-                          hintText: "NEPTUN kód",
-                          hintStyle: TextStyle(
-                              color: Colors.white30),
-                          //errorText: "asd",
-                          fillColor: Color.fromARGB(
-                              40, 20, 20, 30),
-                          filled: true,
-
-                          contentPadding:
-                          EdgeInsets.fromLTRB(
-                              5.0, 15.0, 5.0, 15.0),
-                          border: OutlineInputBorder(
-                            borderRadius:
-                            BorderRadius.circular(
-                                5.0),
-                            gapPadding: 1.0,
-                            borderSide: BorderSide(
-                              color: Colors.green,
-                              width: 2.0,
-                            )
-                          )
-                        )
-                      ),
-
-
-                    ]
-
-                  ),
-                ]
-              ),
-
-            ]
-          )
-        ]
-      ),
-
-          //image: _buildImage('img3'),
+          bodyWidget: loginForm,
           decoration: pageDecoration,
         ),
-        PageViewModel(
-          title: "Another title page",
-          body: "Another beautiful body text for this example onboarding",
-          //image: _buildImage('img2'),
-          footer: RaisedButton(
-            onPressed: () {/* Nothing */},
-            child: const Text(
-              'FooButton',
-              style: TextStyle(color: Colors.white),
-            ),
-            color: Colors.lightBlue,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-          ),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Title of last page",
-          bodyWidget: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text("Click on ", style: bodyStyle),
-              Icon(Icons.edit),
-              Text(" to edit a post", style: bodyStyle),
-            ],
-          ),
-          //image: _buildImage('img1'),
-          decoration: pageDecoration,
-        ),
+
+
+
       ],
-      onDone: () => _onIntroEnd(context),
+      onDone: () {
+        if (loginForm.getKey().currentState.validate()) {
+          log("valid");
+          // If the form is valid, display a Snackbar.
+          //Scaffold.of(context).showSnackBar(SnackBar(content: Text('Processing Data')));
+          //TODO login
+          _onIntroEnd(context);
+
+        }else{
+          log("invalid");
+        }
+
+      },
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
-      showSkipButton: true,
+      showSkipButton: false,
       skipFlex: 0,
       nextFlex: 0,
-      skip: const Text('Skip'),
+      //skip: const Text('Skip'),
       next: const Icon(Icons.arrow_forward),
-      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+      done: const Text('Bejelentkezés', style: TextStyle(fontWeight: FontWeight.w600)),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
         color: Color(0xFFBDBDBD),
@@ -236,51 +171,7 @@ class OnBoardingPage extends StatelessWidget {
   }
 }
 
-class UniversitiesList extends StatefulWidget{
 
-  @override
-  _UniversitiesListState createState() => _UniversitiesListState();
-
-}
-
-class _UniversitiesListState extends State<UniversitiesList> {
-
-  List<DropdownMenuItem> items = [];
-  String selectedValue;
-
-
-  @override
-  Widget build(BuildContext context) {
-    items.clear();
-    for(int i=0; i < 20; i++){
-      items.add(new DropdownMenuItem(
-        child: new Text(
-          'test ' + i.toString(),
-        ),
-        value: 'test ' + i.toString(),
-      ));
-    }
-
-    return new SearchableDropdown(
-      items: items,
-      value: selectedValue,
-      hint: new Text(
-          'Select One'
-      ),
-      searchHint: new Text(
-        'Select One',
-        style: new TextStyle(
-            fontSize: 20
-        ),
-      ),
-      onChanged: (value) {
-        setState(() {
-          selectedValue = value;
-        });
-      },
-    );
-  }
-}
 
 class HomePage extends StatelessWidget {
   @override
