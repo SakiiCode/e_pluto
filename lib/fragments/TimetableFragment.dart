@@ -5,7 +5,7 @@ class TimetableFragment extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Center(
-      child: new Text("Hello Órarend"),
+      child: new Text("Hamarosan"),
     );
   }
 

@@ -17,8 +17,8 @@ class RequestHelper {
       ..headers.set("Expect","100-continue")
       ..headers.set("Host",url.split("/")[2])..add(utf8.encode(body));
 
-  print(url);
-  print(body);
+  print("Request: "+url);
+  //print(body);
 
     return await (await request.close()).transform(utf8.decoder).join();
   }
