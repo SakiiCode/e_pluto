@@ -1,5 +1,6 @@
 import 'fragments/MessagesFragment.dart';
 import 'fragments/TimetableFragment.dart';
+import 'fragments/ExamsFragment.dart';
 import 'package:flutter/material.dart';
 
 class DrawerItem {
@@ -12,7 +13,7 @@ class HomePage extends StatefulWidget {
   final drawerItems = [
     new DrawerItem("Üzenetek", Icons.rss_feed),
     new DrawerItem("Órarend", Icons.calendar_today),
-    //new DrawerItem("Fragment 3", Icons.info)
+    new DrawerItem("Vizsgák", Icons.receipt)
   ];
 
   @override
@@ -30,7 +31,8 @@ class HomePageState extends State<HomePage> {
         return new MessagesFragment();
       case 1:
         return new TimetableFragment();
-
+      case 2:
+        return new ExamsFragment();
       default:
         return new Text("Error");
     }
