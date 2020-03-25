@@ -1,6 +1,7 @@
-
+import 'package:e_pluto/main.dart';
 import 'package:flutter/material.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
+import 'package:e_pluto/globals.dart' as globals;
 
 class UniversitiesList extends StatefulWidget{
 
@@ -18,32 +19,44 @@ class _UniversitiesListState extends State<UniversitiesList> {
   @override
   Widget build(BuildContext context) {
     items.clear();
-    for(int i=0; i < 20; i++){
+    for(int i=0; i < universities.length; i++){
       items.add(new DropdownMenuItem(
         child: new Text(
-          'test ' + i.toString(),
+          universities[i]["Name"],
         ),
-        value: 'test ' + i.toString(),
+        value: universities[i]["Url"],
       ));
     }
-
-    return new SearchableDropdown(
-      items: items,
-      value: selectedValue,
-      hint: new Text(
-          'Select One'
-      ),
-      searchHint: new Text(
-        'Select One',
-        style: new TextStyle(
-            fontSize: 20
-        ),
-      ),
-      onChanged: (value) {
-        setState(() {
-          selectedValue = value;
-        });
-      },
-    );
+    if(globals.universityUrl == "") {
+      selectedValue = universities[0]["Url"];
+    }else{
+      selectedValue = globals.universityUrl;
+    }
+    return /*Column(
+      children: <Widget>[*/
+        /*Flexible(
+          child:*/
+            new SearchableDropdown(
+              isExpanded: true,
+              items: items,
+                  value: selectedValue,
+                  hint: new Text(
+                      'Nyomj ide'
+                  ),
+                  searchHint: new Text(
+                    'Keresés',
+                    style: new TextStyle(
+                        fontSize: 20
+                    ),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      selectedValue = value;
+                    });
+                    setUniversityUrl(value);
+                  },
+                )
+      //  )
+   /* ])*/;
   }
 }
