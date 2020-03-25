@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:e_pluto/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:e_pluto/RequestHelper.dart';
@@ -38,8 +37,8 @@ class _MessagesFragmentState extends State<MessagesFragment> {
   }
 
   Future<Null> refreshList() async {
-    //refreshKey.currentState?.show(atTop: false); //TODO ez kell?
-    //await Future.delayed(Duration(seconds: 2));
+    //refreshKey.currentState?.show(atTop: false); TODO ez kell?
+    //await Future.delayed(Duration(seconds: 2)); TODO ez kell?
     reloadMessages();
     setState(() {
       msgWidget.clear();

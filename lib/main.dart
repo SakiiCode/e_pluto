@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'dart:convert' show json;
-import 'dart:developer';
 import 'loginForm.dart';
 import 'universitiesList.dart';
 import 'RequestHelper.dart';
@@ -16,7 +15,6 @@ setUniversityUrl(String url){
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context){
 
@@ -51,7 +49,6 @@ class OnBoardingPage extends StatelessWidget {
           globals.username = username;
           globals.password = password;
           globals.trainingId = response["TrainingList"][0]["Id"].toString();
-          //print(globals.trainingId);
           Navigator.of(context).push(
             MaterialPageRoute(builder: (_) => HomePage()),
           );
@@ -74,7 +71,6 @@ class OnBoardingPage extends StatelessWidget {
       descriptionPadding: EdgeInsets.fromLTRB(16.0, 56.0, 16.0, 16.0),
       pageColor: Colors.black,
       titlePadding: EdgeInsets.fromLTRB(20, 100, 20, 20)
-      //imagePadding: EdgeInsets.zero,
     );
 
     return IntroductionScreen(
@@ -92,7 +88,6 @@ class OnBoardingPage extends StatelessWidget {
                   "Az alkalmazás csak saját felelősségre használható", style: bodyStyle)
             ],
           ),
-          // TODO image: _buildImage('img1'),
           decoration: pageDecoration,
 
         ),
@@ -106,25 +101,15 @@ class OnBoardingPage extends StatelessWidget {
           bodyWidget: LoginForm(),
           decoration: pageDecoration,
         ),
-
-
-
       ],
       onDone: () {
         if (globals.loginFormKey.currentState.validate()) {
-          log("valid");
           login(globals.usernameController.text, globals.passwordController.text,context);
-
-        }else{
-          log("invalid");
         }
-
       },
-      //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: false,
       skipFlex: 0,
       nextFlex: 0,
-      //skip: const Text('Skip'),
       next: const Icon(Icons.arrow_forward),
       done: const Text('Bejelentkezés', style: TextStyle(fontWeight: FontWeight.w600)),
       dotsDecorator: const DotsDecorator(

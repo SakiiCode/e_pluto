@@ -13,14 +13,8 @@ class LoginForm extends StatefulWidget {
 
 }
 
-// Define a corresponding State class.
-// This class holds data related to the form.
 class LoginFormState extends State<LoginForm> {
-  // Create a global key that uniquely identifies the Form widget
-  // and allows validation of the form.
-  //
-  // Note: This is a `GlobalKey<FormState>`,
-  // not a GlobalKey<MyCustomFormState>.
+
   final _formKey = GlobalKey<FormState>();
 
 
@@ -35,7 +29,6 @@ class LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    // Build a Form widget using the _formKey created above.
     globals.loginFormKey=_formKey;
     globals.usernameController=TextEditingController();
     globals.passwordController=TextEditingController();
@@ -68,7 +61,6 @@ class LoginFormState extends State<LoginForm> {
 
   @override
   void dispose() {
-    // Clean up the controller when the widget is disposed.
     globals.usernameController.dispose();
     globals.passwordController.dispose();
     super.dispose();

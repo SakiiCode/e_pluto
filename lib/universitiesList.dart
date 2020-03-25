@@ -32,31 +32,25 @@ class _UniversitiesListState extends State<UniversitiesList> {
     }else{
       selectedValue = globals.universityUrl;
     }
-    return /*Column(
-      children: <Widget>[*/
-        /*Flexible(
-          child:*/
-            new SearchableDropdown(
-              isExpanded: true,
-              items: items,
-                  value: selectedValue,
-                  hint: new Text(
-                      'Nyomj ide'
-                  ),
-                  searchHint: new Text(
-                    'Keresés',
-                    style: new TextStyle(
-                        fontSize: 20
-                    ),
-                  ),
-                  onChanged: (value) {
-                    setState(() {
-                      selectedValue = value;
-                    });
-                    setUniversityUrl(value);
-                  },
-                )
-      //  )
-   /* ])*/;
+    return new SearchableDropdown(
+      isExpanded: true,
+      items: items,
+          value: selectedValue,
+          hint: new Text(
+              'Nyomj ide'
+          ),
+          searchHint: new Text(
+            'Keresés',
+            style: new TextStyle(
+                fontSize: 20
+            ),
+          ),
+          onChanged: (value) {
+            setState(() {
+              selectedValue = value;
+            });
+            setUniversityUrl(value);
+          },
+        );
   }
 }
