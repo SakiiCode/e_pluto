@@ -19,16 +19,16 @@ class _UniversitiesListState extends State<UniversitiesList> {
   @override
   Widget build(BuildContext context) {
     items.clear();
-    for(int i=0; i < universities.length; i++){
+    for(int i=0; i < globals.universities.length; i++){
       items.add(new DropdownMenuItem(
         child: new Text(
-          universities[i]["Name"],
+          globals.universities[i]["Name"],
         ),
-        value: universities[i]["Url"],
+        value: globals.universities[i]["Url"],
       ));
     }
     if(globals.universityUrl == "") {
-      selectedValue = universities[0]["Url"];
+      selectedValue = globals.universities[0]["Url"];
     }else{
       selectedValue = globals.universityUrl;
     }

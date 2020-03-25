@@ -1,5 +1,5 @@
-import 'package:e_pluto/main.dart';
 import 'package:flutter/material.dart';
+import 'package:e_pluto/globals.dart' as globals;
 
 // Define a custom Form widget.
 class LoginForm extends StatefulWidget {
@@ -36,9 +36,9 @@ class LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
-    loginFormKey=_formKey;
-    usernameController=TextEditingController();
-    passwordController=TextEditingController();
+    globals.loginFormKey=_formKey;
+    globals.usernameController=TextEditingController();
+    globals.passwordController=TextEditingController();
     return Form(
       key: _formKey,
       child: Column(
@@ -49,7 +49,7 @@ class LoginFormState extends State<LoginForm> {
               border: OutlineInputBorder(),
             ),
             validator: (value) => validate(value),
-            controller: usernameController,
+            controller: globals.usernameController,
           ),
           SizedBox(height: 30),
           TextFormField(
@@ -58,7 +58,7 @@ class LoginFormState extends State<LoginForm> {
               border: OutlineInputBorder(),
             ),
             validator: (value) => validate(value),
-            controller: passwordController,
+            controller: globals.passwordController,
             obscureText: true,
           ),
         ]
@@ -69,8 +69,8 @@ class LoginFormState extends State<LoginForm> {
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
-    usernameController.dispose();
-    passwordController.dispose();
+    globals.usernameController.dispose();
+    globals.passwordController.dispose();
     super.dispose();
   }
 }

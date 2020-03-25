@@ -7,13 +7,7 @@ import 'universitiesList.dart';
 import 'RequestHelper.dart';
 import 'HomePage.dart';
 import 'globals.dart' as globals;
-
-String uniJson = "";
-List universities; //await DefaultAssetBundle.of(context).loadString("assets/data.json");
-GlobalKey<FormState> loginFormKey;
-TextEditingController usernameController;
-TextEditingController passwordController;
-List messages=["egy","kettő","három"];
+import 'package:cron/cron.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,8 +22,8 @@ class MyApp extends StatelessWidget {
 
 
     RequestHelper.getInstitutes().then((value) {
-      uniJson=value;
-      universities = json.decode(value);
+      globals.uniJson=value;
+      globals.universities = json.decode(value);
     });
 
     return MaterialApp(
@@ -51,16 +45,19 @@ class OnBoardingPage extends StatelessWidget {
 
 
     RequestHelper.getTrainings(globals.universityUrl, username, password).then((value){
-      Map<String, dynamic> response = json.decode(value);
-      if(response["ErrorMessage"] == null) {
-
-        globals.username = username;
-        globals.password = password;
-        globals.trainingId=response["TrainingList"][0]["Id"].toString();
-        print(globals.trainingId);
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => HomePage()),
-        );
+      try {
+        Map<String, dynamic> response = json.decode(value);
+        if (response["ErrorMessage"] == null) {
+          globals.username = username;
+          globals.password = password;
+          globals.trainingId = response["TrainingList"][0]["Id"].toString();
+          //print(globals.trainingId);
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => HomePage()),
+          );
+        }
+      }catch(e){
+        Scaffold.of(context).showSnackBar(SnackBar(content: Text("Hiba:" + e.toString()),));
       }
     });
 
@@ -79,7 +76,6 @@ class OnBoardingPage extends StatelessWidget {
       titlePadding: EdgeInsets.fromLTRB(20, 100, 20, 20)
       //imagePadding: EdgeInsets.zero,
     );
-    //universityUrl =
 
     return IntroductionScreen(
       pages: [
@@ -115,9 +111,9 @@ class OnBoardingPage extends StatelessWidget {
 
       ],
       onDone: () {
-        if (loginFormKey.currentState.validate()) {
+        if (globals.loginFormKey.currentState.validate()) {
           log("valid");
-          login(usernameController.text,passwordController.text,context);
+          login(globals.usernameController.text, globals.passwordController.text,context);
 
         }else{
           log("invalid");
