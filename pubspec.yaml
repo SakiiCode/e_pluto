@@ -32,7 +32,7 @@ dependencies:
   flutter_markdown: "^0.3.4"
 
   cron: ^0.2.2
-  local_notifications: any
+  #local_notifications: any
   flutter_secure_storage: ^3.3.3
   flushbar: ^1.10.4
 

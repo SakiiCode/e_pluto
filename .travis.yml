@@ -23,6 +23,7 @@ android:
 install:
   - git clone https://github.com/flutter/flutter.git -b stable
   - ./flutter/bin/flutter doctor
+  - yes | ./flutter/bin/flutter doctor --android-licenses
 script:
   - ./flutter/bin/flutter build apk --debug
 cache:

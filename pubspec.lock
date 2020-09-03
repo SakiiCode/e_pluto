@@ -144,13 +144,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.8"
-  local_notifications:
-    dependency: "direct main"
-    description:
-      name: local_notifications
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.7"
   markdown:
     dependency: transitive
     description:
