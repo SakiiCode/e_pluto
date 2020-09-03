@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:local_notifications/local_notifications.dart';
 
-
 class ExamsFragment extends StatelessWidget {
-
-
   // Initialize your Notification channel object
   /*  static const AndroidNotificationChannel channel = const AndroidNotificationChannel(
         id: 'default_notification',
@@ -13,11 +10,9 @@ class ExamsFragment extends StatelessWidget {
         importance: AndroidNotificationImportance.HIGH*/
     );*/
 
-
   @override
-  Widget build(BuildContext context){
-
-  //sendNotification();
+  Widget build(BuildContext context) {
+    //sendNotification();
 
     // TODO: implement build
     return new Center(
@@ -40,7 +35,7 @@ class ExamsFragment extends StatelessWidget {
         androidSettings: new AndroidSettings(
             channel: channel
         )
-    );*/
-  }
+    );
+  }*/
 
 }

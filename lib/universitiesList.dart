@@ -1,7 +1,5 @@
-import 'package:e_pluto/main.dart';
 import 'package:flutter/material.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
-import 'package:e_pluto/globals.dart' as globals;
 import 'dart:convert' show json;
 import 'RequestHelper.dart';
 
