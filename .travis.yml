@@ -1,0 +1,25 @@
+sudo: required
+language: android
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:fdroid/fdroidserver'
+    packages:
+      - fdroidserver
+      - openssh-client
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-26.0.2
+    - android-25
+  licenses:
+    - 'android-sdk-license-.+'
+
+script:
+  - ./gradlew test
+
+after_success:
+  - fdroid nightly -v
