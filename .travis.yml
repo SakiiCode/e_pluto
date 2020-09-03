@@ -8,6 +8,8 @@ addons:
     packages:
       - fdroidserver
       - openssh-client
+      - lib32stdc++6
+    update: true
 
 android:
   components:
@@ -18,8 +20,14 @@ android:
   licenses:
     - 'android-sdk-license-.+'
 
+install:
+  - git clone https://github.com/flutter/flutter.git -b stable
+  - ./flutter/bin/flutter doctor
 script:
-  - ./gradlew test
+  - ./flutter/bin/flutter test
+cache:
+  directories:
+    - $HOME/.pub-cache
 
 after_success:
   - fdroid nightly -v
