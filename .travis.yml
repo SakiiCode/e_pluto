@@ -1,0 +1,41 @@
+sudo: required
+language: android
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:fdroid/fdroidserver'
+    packages:
+      - fdroidserver
+      - openssh-client
+      - lib32stdc++6
+    update: true
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-26.0.2
+    - android-25
+  licenses:
+    - 'android-sdk-license-.+'
+
+install:
+  - git clone https://github.com/flutter/flutter.git -b stable
+  - ./flutter/bin/flutter doctor
+script:
+  - ./flutter/bin/flutter test
+cache:
+  directories:
+    - $HOME/.pub-cache
+
+after_success:
+  - fdroid nightly -v
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: fdroid
