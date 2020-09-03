@@ -14,7 +14,7 @@ description: Nem hivatalos Neptun kliens
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.3.0"
 
 dependencies:
   flutter:
@@ -32,6 +32,9 @@ dependencies:
   flutter_markdown: "^0.3.4"
 
   cron: ^0.2.2
+  local_notifications: any
+  flutter_secure_storage: ^3.3.3
+  flushbar: ^1.10.4
 
 
 dev_dependencies:
