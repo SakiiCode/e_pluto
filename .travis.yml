@@ -24,19 +24,20 @@ install:
   - git clone https://github.com/flutter/flutter.git -b stable
   - ./flutter/bin/flutter doctor
 script:
-  - ./flutter/bin/flutter test
+  - ./flutter/bin/flutter build apk --debug
 cache:
   directories:
     - $HOME/.pub-cache
 
 after_success:
+  - cp ./build/app/outputs/apk/debug/app-debug.apk ./fdroid/repo/
   - fdroid nightly -v
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep_history: true
+  keep_history: false
   on:
     branch: master
   target_branch: fdroid
