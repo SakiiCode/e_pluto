@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'loginForm.dart';
-import 'universitiesList.dart';
+import 'LoginForm.dart';
+import 'UniversitiesList.dart';
 import 'RequestHelper.dart';
 import 'HomePage.dart';
 import 'globals.dart' as globals;

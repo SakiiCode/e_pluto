@@ -26,6 +26,7 @@ class Message {
 class _MessagesFragmentState extends State<MessagesFragment> {
   List<Message> messages = [];
   var refreshKey = GlobalKey<RefreshIndicatorState>();
+  bool loading = true;
 
   @override
   void initState() {
@@ -50,6 +51,7 @@ class _MessagesFragmentState extends State<MessagesFragment> {
             messagesJson["MessagesList"][i]["IsNew"]);
         setState(() {
           messages.add(msg);
+          loading=false;
         });
       }
     } catch (e) {
@@ -130,14 +132,17 @@ class _MessagesFragmentState extends State<MessagesFragment> {
 
     msgWidget.clear();
     if (messages == null || messages.isEmpty) {
-      msgWidget.add(new ListTile(title: Text("Nincs több üzenet")));
-    }
-    for (int i = 0; i < messages.length; i++) {
-      msgWidget.add(ListTile(
-        leading: Icon(messages[i].isNew ? Icons.mail : Icons.drafts),
-        title: Text(messages[i].subject),
-        onTap: () => showMessage(i),
-      ));
+      if(!loading) {
+        msgWidget.add(new ListTile(title: Text("Nincs több üzenet")));
+      }
+    }else {
+      for (int i = 0; i < messages.length; i++) {
+        msgWidget.add(ListTile(
+          leading: Icon(messages[i].isNew ? Icons.mail : Icons.drafts),
+          title: Text(messages[i].subject),
+          onTap: () => showMessage(i),
+        ));
+      }
     }
 
     return RefreshIndicator(

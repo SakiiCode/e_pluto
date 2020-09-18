@@ -9,7 +9,7 @@ class UniversitiesList extends StatefulWidget {
 }
 
 class _UniversitiesListState extends State<UniversitiesList> {
-  String selectedValue = "";
+  String selectedValue = "Betöltés...";
   List universities = [];
 
   @override
@@ -20,6 +20,12 @@ class _UniversitiesListState extends State<UniversitiesList> {
 
   void loadInstitutes() async {
     var response = await RequestHelper.getInstitutes();
+    if(response == null){
+      setState(() {
+        selectedValue = "Nincs kapcsolat, lapozz az újratöltéshez";
+      });
+      return;
+    }
     var universitiesJson = json.decode(response);
     await RequestHelper.storage.write(key: "universityUrl", value: universitiesJson[0]["Url"]);
     setState(() {
@@ -45,7 +51,7 @@ class _UniversitiesListState extends State<UniversitiesList> {
       isExpanded: true,
       items: items,
       value: selectedValue,
-      hint: new Text('Betöltés...'),
+      hint: new Text(selectedValue),
       searchHint: new Text(
         'Keresés',
         style: new TextStyle(fontSize: 20),
