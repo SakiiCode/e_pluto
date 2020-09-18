@@ -3,11 +3,21 @@ import 'dart:convert' show utf8;
 import 'dart:io';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'dart:convert' show json;
+import 'package:http/http.dart' as http;
+import 'package:data_connection_checker/data_connection_checker.dart';
 
 class RequestHelper {
   static final storage = new FlutterSecureStorage();
 
+
+
+
   static Future<String> getStuffFromUrl(String url, String body) async {
+    if(!await DataConnectionChecker().hasConnection){
+      print("No connection");
+      return null;
+    }
+
     HttpClient client = new HttpClient();
     client.badCertificateCallback = ((X509Certificate cert, String host, int port) => true); //todo ezt minél előbb megszüntetni
     final HttpClientRequest request = await client.postUrl(Uri.parse(url))
@@ -18,8 +28,7 @@ class RequestHelper {
       ..add(utf8.encode(body));
 
     print("Request: " + url);
-    //print(body);
-
+    print(request.headers);
     return await (await request.close()).transform(utf8.decoder).join();
   }
 
@@ -59,6 +68,7 @@ class RequestHelper {
         password +
         '","NeptunCode":null,"CurrentPage":0,"StudentTrainingID":null,"LCID":1038,"ErrorMessage":null,"MobileVersion":"1.5","MobileServiceVersion":0}';
     Future<String> response = getStuffFromUrl(url, body);
+
     return response;
   }
 
@@ -116,21 +126,27 @@ class RequestHelper {
           trainingId +
           ',"LCID":1038,"ErrorMessage":null,"MobileVersion":"1.5","MobileServiceVersion":0}');
 
-  Future<String> getTimeTable(String schoolUrl, String userName, String password, String trainingId, DateTime from, DateTime to) => getStuffFromUrl(
-      schoolUrl + "/GetCalendarData",
-      '{"needAllDaylong":false,"TotalRowCount":-1,"ExceptionsEnum":0,"Time":true,"Exam":true,"Task":true,"Apointment":true,"RegisterList":true,"Consultation":true,"startDate":"\/Date(' +
-          from.millisecondsSinceEpoch.toString() +
-          ')\/","endDate":"\/Date(' +
-          to.millisecondsSinceEpoch.toString() +
-          ')\/","entityLimit":0,"UserLogin":"' +
-          userName +
-          '","Password":"' +
-          password +
-          '","NeptunCode":"' +
-          userName +
-          '","CurrentPage":0,"StudentTrainingID":' +
-          trainingId +
-          ',"LCID":1038,"ErrorMessage":null,"MobileVersion":"1.5","MobileServiceVersion":0}');
+  static Future<String> getTimeTable(DateTime from, DateTime to) async {
+    String universityUrl = await storage.read(key: "universityUrl");
+    String userName = await storage.read(key: "username");
+    String password = await storage.read(key: "password");
+    String trainingId = await storage.read(key: "trainingId");
+    return getStuffFromUrl(
+        universityUrl + "/GetCalendarData",
+        '{"needAllDaylong":false,"TotalRowCount":-1,"ExceptionsEnum":0,"Time":true,"Exam":true,"Task":true,"Apointment":true,"RegisterList":true,"Consultation":true,"startDate":"\/Date(' +
+            from.millisecondsSinceEpoch.toString() +
+            ')\/","endDate":"\/Date(' +
+            to.millisecondsSinceEpoch.toString() +
+            ')\/","entityLimit":0,"UserLogin":"' +
+            userName +
+            '","Password":"' +
+            password +
+            '","NeptunCode":"' +
+            userName +
+            '","CurrentPage":0,"StudentTrainingID":' +
+            trainingId +
+            ',"LCID":1038,"ErrorMessage":null,"MobileVersion":"1.5","MobileServiceVersion":0}');
+  }
 
 /*Future<String> getHomeworkByTeacher(String accessToken,
       String schoolCode, int id) => getStuffFromUrl("https://" + schoolCode +

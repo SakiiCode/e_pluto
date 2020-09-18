@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'RequestHelper.dart';
 import 'HomePage.dart';
 import 'LoginPages.dart';
+import 'package:flutter/services.dart';
+import 'package:time_machine/time_machine.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await TimeMachine.initialize({'rootBundle': rootBundle});
+  Culture.current = await Cultures.getCulture('hu');
+
   runApp(MyApp());
 }
 
@@ -18,6 +24,7 @@ class MyApp extends StatelessWidget {
         future: RequestHelper.login(context),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
+            print(snapshot.data);
             if (snapshot.data == "OK") {
               return HomePage();
             } else {
@@ -34,4 +41,7 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+
+
+
 }
