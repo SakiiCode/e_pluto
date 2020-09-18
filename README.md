@@ -1,4 +1,4 @@
-# e_pluto
+# e-Pluto
 
 Nem hivatalos Neptun kliens
 
@@ -30,4 +30,5 @@ Az app kizárólag NEPTUN szerverekkel kommunikál titkosított kapcsolaton, nem
 ## Hogyan segíthetek?
 A legegyszerűbb ha csak használod az alkalmazást és elmondod a véleményed róla. Hibajelentéshez vagy új ötlet esetén az issue-k használata a legjobb, de ha nincs GitHub felhasználód, küldhetsz e-mailt az s4k11@tuta.io címre. Ha ki szeretnél javítani egy hibát, vagy új funkciót megvalósítani, küldj Pull Request-et
 
-![messages](msg.png)![timetable](timetable.png)
+## Képernyőképek
+<img src="https://raw.githubusercontent.com/SakiiCode/e_pluto/assets/msg.png" width="200" alt="messages"/> <img src="https://raw.githubusercontent.com/SakiiCode/e_pluto/assets/timetable.png" width="200" alt="timetable"/>
