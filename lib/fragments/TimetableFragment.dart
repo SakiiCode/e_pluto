@@ -8,7 +8,6 @@ class TimetableFragment extends StatelessWidget {
 
   Future<List<dynamic>> load(context) async {
     String response = await RequestHelper.getTimeTable(new DateTime.now().subtract(new Duration(days:7)), new DateTime.now().add(new Duration(days:7)));
-    print(response);
     var timetableJson = json.decode(response);
     var lessons = timetableJson["calendarData"][0]["title"];
     return timetableJson["calendarData"];

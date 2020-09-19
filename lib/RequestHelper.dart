@@ -28,7 +28,6 @@ class RequestHelper {
       ..add(utf8.encode(body));
 
     print("Request: " + url);
-    print(request.headers);
     return await (await request.close()).transform(utf8.decoder).join();
   }
 
