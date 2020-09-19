@@ -11,6 +11,10 @@ addons:
       - lib32stdc++6
     update: true
 
+branches:
+  only:
+  - release
+ 
 android:
   components:
     - tools

@@ -21,34 +21,37 @@ class TimetableFragment extends StatelessWidget {
     List<String> parts = formatted.split(",");
     for(int i=0;i<parts.length;i++){
       parts[i] = parts[i].trim();
+      if(parts[i]==""){
+        parts.removeAt(i);
+      }
     }
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(parts[1]),
+          title: Text("Részletek"),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 Text('Név',style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(parts[2].trim()),
+                Text('  '+(parts.length>1?parts[1]:'Ismeretlen')),
                 Text('Hetek',style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(parts[6]),
+                Text('  '+(parts.length>4?parts[4]:'Ismeretlen')),
                 Text('NEPTUN-kód',style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(parts[3]),
+                Text('  '+(parts.length>2?parts[2]:'Ismeretlen')),
                 Text('Oktató',style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(parts[7]),
+                Text('  '+(parts.length>5?parts[5]:'Ismeretlen')),
                 Text('Hely',style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(parts[9]),
+                Text('  '+(parts.length>6?parts[6]:'Ismeretlen')),
                 Text('Kurzus kódja',style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(parts[5].substring(2)),
+                Text('  '+(parts.length>3?parts[3].substring(2):'Ismeretlen')),
               ],
             ),
           ),
           actions: <Widget>[
             FlatButton(
-              child: Text('Approve'),
+              child: Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
