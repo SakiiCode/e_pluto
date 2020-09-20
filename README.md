@@ -5,11 +5,11 @@ Nem hivatalos Neptun kliens
 ## Telepítés
 
 1. Töltsd le az F-Droidot [innen](https://f-droid.org/hu/)
-2. Add hozzá a tárolót:
-  * Számítógépről beolvashatod ezt a QR-kódot, válaszd a "Megnyitás F-Droiddal" lehetőséget
+2. Add hozzá a tárolót (válaszd a "Megnyitás F-Droiddal" lehetőséget):
+  * Számítógépről beolvashatod ezt a QR-kódot:
   * <img src="https://raw.githubusercontent.com/SakiiCode/e_pluto-nightly/master/icon.png" width="230"/>
   * Telefonról ezt a linket is használhatod: [SakiiCode/e_pluto-nightly/master/fdroid/repo](https://raw.githubusercontent.com/SakiiCode/e_pluto-nightly/master/fdroid/repo)
-3. F-Droidban keresd ki az e-Pluto-t és telepítsd.
+3. F-Droidban `e_pluto` néven keresd ki és telepítsd.
 4. Profit
 
 
