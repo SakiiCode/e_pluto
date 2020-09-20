@@ -1,0 +1,15 @@
+identity_file = '/tmp/.hp4izl58/debug_keystore_8IRlJZJpVnFq52389yh4aZJybc23i0xhq2tCn2HQsZ0_id_rsa'
+repo_name = 'SakiiCode/e_pluto-nightly'
+repo_url = 'https://raw.githubusercontent.com/SakiiCode/e_pluto-nightly/release/fdroid/repo'
+repo_icon = 'icon.png'
+archive_name = 'SakiiCode/e_pluto-nightly archive'
+archive_url = 'https://raw.githubusercontent.com/SakiiCode/e_pluto-nightly/release/fdroid/archive'
+archive_icon = 'icon.png'
+servergitmirrors = 'git@github.com:SakiiCode/e_pluto-nightly'
+keystore = '/home/travis/.android/debug.keystore'
+repo_keyalias = 'androiddebugkey'
+keystorepass = 'android'
+keypass = 'android'
+keydname = 'CN=Android Debug,O=Android,C=US'
+make_current_version_link = False
+accepted_formats = ('txt', 'yml')

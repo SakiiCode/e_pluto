@@ -1,0 +1,259 @@
+{
+  "METADATA_VERSION": 21,
+  "allow_disabled_algorithms": false,
+  "ml.sakii.e_pluto_3_a6a4dcf.apk": {
+    "apkName": "ml.sakii.e_pluto_3_a6a4dcf.apk",
+    "nativecode": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "antiFeatures": [],
+    "versionCode": 3,
+    "uses-permission": [
+      [
+        "android.permission.INTERNET",
+        null
+      ],
+      [
+        "android.permission.VIBRATE",
+        17
+      ]
+    ],
+    "packageName": "ml.sakii.e_pluto",
+    "hashType": "sha256",
+    "versionName": "1.1.2",
+    "minSdkVersion": "18",
+    "targetSdkVersion": "28",
+    "icons_src": {
+      "480": "res/mipmap-xxhdpi-v4/ic_launcher.png",
+      "640": "res/mipmap-xxxhdpi-v4/ic_launcher.png",
+      "-1": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "160": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "240": "res/mipmap-hdpi-v4/ic_launcher.png",
+      "320": "res/mipmap-xhdpi-v4/ic_launcher.png"
+    },
+    "name": "e_pluto",
+    "signer": "e330196e62c89ae56b1c0096ec604c41b636c8302a9bba9873664a1611a955b0",
+    "icon": "ml.sakii.e_pluto.3.png",
+    "added": 1600612848.564557,
+    "size": 55540577,
+    "sig": "a6a4dcfd50c7512db2ca13afcba3483a",
+    "hash": "a8812fde3793157e7c84bad04498df3657182f3c3c9f90f5c1cc1149ca44fade",
+    "uses-permission-sdk-23": [],
+    "icons": {
+      "480": "ml.sakii.e_pluto.3.png",
+      "640": "ml.sakii.e_pluto.3.png",
+      "160": "ml.sakii.e_pluto.3.png",
+      "240": "ml.sakii.e_pluto.3.png",
+      "320": "ml.sakii.e_pluto.3.png",
+      "0": "ml.sakii.e_pluto.3.png"
+    },
+    "features": []
+  },
+  "ml.sakii.e_pluto_1.apk": {
+    "apkName": "ml.sakii.e_pluto_1.apk",
+    "nativecode": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "antiFeatures": [],
+    "versionCode": 1,
+    "uses-permission": [
+      [
+        "android.permission.INTERNET",
+        null
+      ],
+      [
+        "android.permission.VIBRATE",
+        17
+      ]
+    ],
+    "packageName": "ml.sakii.e_pluto",
+    "hashType": "sha256",
+    "versionName": "1.0.0",
+    "minSdkVersion": "18",
+    "targetSdkVersion": "28",
+    "icons_src": {
+      "480": "res/mipmap-xxhdpi-v4/ic_launcher.png",
+      "640": "res/mipmap-xxxhdpi-v4/ic_launcher.png",
+      "-1": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "160": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "240": "res/mipmap-hdpi-v4/ic_launcher.png",
+      "320": "res/mipmap-xhdpi-v4/ic_launcher.png"
+    },
+    "name": "e_pluto",
+    "signer": "e330196e62c89ae56b1c0096ec604c41b636c8302a9bba9873664a1611a955b0",
+    "icon": "ml.sakii.e_pluto.1.png",
+    "added": 1600612851.118051,
+    "size": 54292183,
+    "sig": "a6a4dcfd50c7512db2ca13afcba3483a",
+    "hash": "ea0dd9f5fd84f24d162e6792e8442196b2e69b106aa5187919986a6b3569e217",
+    "uses-permission-sdk-23": [],
+    "icons": {
+      "480": "ml.sakii.e_pluto.1.png",
+      "640": "ml.sakii.e_pluto.1.png",
+      "160": "ml.sakii.e_pluto.1.png",
+      "240": "ml.sakii.e_pluto.1.png",
+      "320": "ml.sakii.e_pluto.1.png",
+      "0": "ml.sakii.e_pluto.1.png"
+    },
+    "features": []
+  },
+  "ml.sakii.e_pluto_1_a6a4dcf.apk": {
+    "apkName": "ml.sakii.e_pluto_1_a6a4dcf.apk",
+    "nativecode": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "antiFeatures": [],
+    "versionCode": 1,
+    "uses-permission": [
+      [
+        "android.permission.INTERNET",
+        null
+      ],
+      [
+        "android.permission.VIBRATE",
+        17
+      ]
+    ],
+    "packageName": "ml.sakii.e_pluto",
+    "hashType": "sha256",
+    "versionName": "1.0.0",
+    "minSdkVersion": "18",
+    "targetSdkVersion": "28",
+    "icons_src": {
+      "480": "res/mipmap-xxhdpi-v4/ic_launcher.png",
+      "640": "res/mipmap-xxxhdpi-v4/ic_launcher.png",
+      "-1": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "160": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "240": "res/mipmap-hdpi-v4/ic_launcher.png",
+      "320": "res/mipmap-xhdpi-v4/ic_launcher.png"
+    },
+    "name": "e_pluto",
+    "signer": "e330196e62c89ae56b1c0096ec604c41b636c8302a9bba9873664a1611a955b0",
+    "icon": "ml.sakii.e_pluto.1.png",
+    "added": 1600612853.702959,
+    "size": 55540445,
+    "sig": "a6a4dcfd50c7512db2ca13afcba3483a",
+    "hash": "af4539512c7d7649164abc67e7a081d43fc9edb7acaa01c914906ea85e28f687",
+    "uses-permission-sdk-23": [],
+    "icons": {
+      "480": "ml.sakii.e_pluto.1.png",
+      "640": "ml.sakii.e_pluto.1.png",
+      "160": "ml.sakii.e_pluto.1.png",
+      "240": "ml.sakii.e_pluto.1.png",
+      "320": "ml.sakii.e_pluto.1.png",
+      "0": "ml.sakii.e_pluto.1.png"
+    },
+    "features": []
+  },
+  "ml.sakii.e_pluto_2.apk": {
+    "apkName": "ml.sakii.e_pluto_2.apk",
+    "nativecode": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "antiFeatures": [],
+    "versionCode": 2,
+    "uses-permission": [
+      [
+        "android.permission.INTERNET",
+        null
+      ],
+      [
+        "android.permission.VIBRATE",
+        17
+      ]
+    ],
+    "packageName": "ml.sakii.e_pluto",
+    "hashType": "sha256",
+    "versionName": "1.1.1",
+    "minSdkVersion": "18",
+    "targetSdkVersion": "28",
+    "icons_src": {
+      "480": "res/mipmap-xxhdpi-v4/ic_launcher.png",
+      "640": "res/mipmap-xxxhdpi-v4/ic_launcher.png",
+      "-1": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "160": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "240": "res/mipmap-hdpi-v4/ic_launcher.png",
+      "320": "res/mipmap-xhdpi-v4/ic_launcher.png"
+    },
+    "name": "e_pluto",
+    "signer": "e330196e62c89ae56b1c0096ec604c41b636c8302a9bba9873664a1611a955b0",
+    "icon": "ml.sakii.e_pluto.2.png",
+    "added": 1600612856.289652,
+    "size": 55540593,
+    "sig": "a6a4dcfd50c7512db2ca13afcba3483a",
+    "hash": "f0d7378d5ef444adebea8bfff97992c3d2e6e4bdd5d2f54bb165df2969dc1c31",
+    "uses-permission-sdk-23": [],
+    "icons": {
+      "480": "ml.sakii.e_pluto.2.png",
+      "640": "ml.sakii.e_pluto.2.png",
+      "160": "ml.sakii.e_pluto.2.png",
+      "240": "ml.sakii.e_pluto.2.png",
+      "320": "ml.sakii.e_pluto.2.png",
+      "0": "ml.sakii.e_pluto.2.png"
+    },
+    "features": []
+  },
+  "ml.sakii.e_pluto_3.apk": {
+    "apkName": "ml.sakii.e_pluto_3.apk",
+    "nativecode": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "antiFeatures": [],
+    "versionCode": 3,
+    "uses-permission": [
+      [
+        "android.permission.INTERNET",
+        null
+      ],
+      [
+        "android.permission.VIBRATE",
+        17
+      ]
+    ],
+    "packageName": "ml.sakii.e_pluto",
+    "hashType": "sha256",
+    "versionName": "1.1.2",
+    "minSdkVersion": "18",
+    "targetSdkVersion": "28",
+    "icons_src": {
+      "480": "res/mipmap-xxhdpi-v4/ic_launcher.png",
+      "640": "res/mipmap-xxxhdpi-v4/ic_launcher.png",
+      "-1": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "160": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "240": "res/mipmap-hdpi-v4/ic_launcher.png",
+      "320": "res/mipmap-xhdpi-v4/ic_launcher.png"
+    },
+    "name": "e_pluto",
+    "signer": "e330196e62c89ae56b1c0096ec604c41b636c8302a9bba9873664a1611a955b0",
+    "icon": "ml.sakii.e_pluto.3.png",
+    "added": 1600612858.873109,
+    "size": 55540577,
+    "sig": "a6a4dcfd50c7512db2ca13afcba3483a",
+    "hash": "572c7a1f6ffb30520f9215d8cff62dcf70f370957b270f4c45c68d298c5ccf49",
+    "uses-permission-sdk-23": [],
+    "icons": {
+      "480": "ml.sakii.e_pluto.3.png",
+      "640": "ml.sakii.e_pluto.3.png",
+      "160": "ml.sakii.e_pluto.3.png",
+      "240": "ml.sakii.e_pluto.3.png",
+      "320": "ml.sakii.e_pluto.3.png",
+      "0": "ml.sakii.e_pluto.3.png"
+    },
+    "features": []
+  }
+}
