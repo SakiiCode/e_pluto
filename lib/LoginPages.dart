@@ -43,8 +43,6 @@ class LoginPages extends StatelessWidget {
                   "\n"
                   "Ezt az alkalmazást nem az SDA Informatika Zrt. készítette, és nem helyettesíti az ő szoftvereiket.\n"
                   "\n"
-                  "Probléma esetén írj egy e-mailt ezen app fejlesztőjének:\n"
-                  "s4k11@tuta.io\n"
                   "\n"
                   "Csak saját felelősségre használható",
                   style: bodyStyle)
